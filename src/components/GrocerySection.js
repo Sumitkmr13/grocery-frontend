@@ -7,7 +7,7 @@ export default function GrocerySection() {
     const [groceryItemsList, updateItemsList] = useState([]);
     async function getGroceryItems() {
         try {
-            const response = await axios.get('http://localhost:3000/groceryItems/list');
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/groceryItems/list`);
             console.log('response', response);
             updateItemsList([...response.data.result]);
         } catch (error) {
